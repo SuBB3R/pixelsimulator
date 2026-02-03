@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define SCREEN_WIDTH 12
 #define SCREEN_HEIGHT 10
-
+#define PIXEL_COUNT (SCREEN_WIDTH * SCREEN_HEIGHT)
 enum RectColor
 {
     MARK_EMPTY = 0,
@@ -56,7 +56,7 @@ void draw_rectangle2(struct Rectangle rect, int pixels_array[])
 int main()
 {
     const int ARRAY_LENGTH = SCREEN_WIDTH * SCREEN_HEIGHT;
-    int pixels [120] = {0};
+    int pixels [PIXEL_COUNT] = {0};
     pixels [4] = MARK_O;
 
     int p1x = 2;
