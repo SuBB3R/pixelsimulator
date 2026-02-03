@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#define SCREEN_WIDTH 12
+#define SCREEN_HEIGHT 10
 
 enum RectColor
 {
@@ -11,7 +12,7 @@ enum RectColor
     MARK_NINE,
     MARK_SEVEN,
 };
-struct Nigtangle
+struct Rectangle
 {
     int pos_y;
     int pos_x;
@@ -20,9 +21,6 @@ struct Nigtangle
     enum RectColor color;
 };
 
-
-const int SCREEN_WIDTH = 12;
-const int SCREEN_HEIGHT = 10;
 void draw_rectangle(int pos_x, int pos_y, int width, int height, enum RectColor color, int pixels_array[])
 {
     
@@ -39,7 +37,7 @@ void draw_rectangle(int pos_x, int pos_y, int width, int height, enum RectColor 
     }
 }
 
-void draw_rectangle2(struct Nigtangle rect, int pixels_array[])
+void draw_rectangle2(struct Rectangle rect, int pixels_array[])
 {
     
     for(int y = rect.pos_y; y < rect.pos_y + rect.height; y++)
@@ -65,7 +63,7 @@ int main()
     int p1y = 1;
     pixels[ p1y * SCREEN_WIDTH + p1x ] = MARK_X;
 
-    struct Nigtangle rect1;
+    struct Rectangle rect1;
     rect1.pos_x = 5;
     rect1.pos_y = 1;
     rect1.width = 4;
@@ -73,7 +71,7 @@ int main()
     rect1.color = MARK_MONKEY;
     draw_rectangle2(rect1, pixels);
    
-    struct Nigtangle rect2;
+    struct Rectangle rect2;
     rect2.pos_x = 0;
     rect2.pos_y = 3;
     rect2.width = 1;
@@ -81,7 +79,7 @@ int main()
     rect2.color = MARK_EIGHT;
     draw_rectangle2(rect2, pixels);
     
-    struct Nigtangle rect3;
+    struct Rectangle rect3;
     rect3.pos_x = 2;
     rect3.pos_y = 5;
     rect3.width = 10;
@@ -89,7 +87,7 @@ int main()
     rect3.color = MARK_SEVEN;
     draw_rectangle2(rect3, pixels);
 
-    struct Nigtangle rect0;
+    struct Rectangle rect0;
     rect0.pos_y = 4;
     rect0.pos_x = 4;
     rect0.width = 3;
